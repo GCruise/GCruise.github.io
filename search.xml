@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title>设计模式----代理模式</title>
+      <link href="/2019/02/19/design-pattern-1/"/>
+      <url>/2019/02/19/design-pattern-1/</url>
+      <content type="html"><![CDATA[<p>代理模式的定义：<br>为真实对象提供一个代理对象，并听过代理对象完成对真实对象的引用。在某些情况下，不能直接引用对象，那么代理对象就可以在<br>真实对象和目标之间起到一个中介的作用。比如炒股，我们需要通过券商帮我们购买股票，那么券商就相当于一个代理对象。<br>代理模式可以分为两种，分别是静态模式和动态模式。</p><h4 id="静态模式"><a href="#静态模式" class="headerlink" title="静态模式"></a>静态模式</h4><p>静态代理指的是需要自己为要被代理的类写一个代理类，或者通过工具生成一个代理类。<br>（1）新建买股票的接口。真实对象和代理对象都会实现这个接口。<br><img src="/img/design-pattern-proxy-1.png" alt=""></p><p>（2）真实购买股票的行为。实现购买股票的接口。<br><img src="/img/design-pattern-proxy-2.png" alt=""></p><p>（3）某些用户可能并不希望自己去购买股票，想通过代理去购买股票，因此证券商就充当了代理的角色。<br><img src="/img/design-pattern-proxy-3.png" alt=""></p><p>（3）创建客户端，模拟购买股票的过程<br><img src="/img/design-pattern-proxy-4.png" alt=""></p><h4 id="动态模式"><a href="#动态模式" class="headerlink" title="动态模式"></a>动态模式</h4><p>（1）声明动态代理类，并实现InvocationHandler接口<br><img src="/img/design-pattern-proxy-5.png" alt=""><br>重写InvocationHandler中的invoke方法，动态代理可以在不改变原有代码的基础上，对原有对象的功能进行增强和扩展。<br>（2）动态代理对象具体实现<br><img src="/img/design-pattern-proxy-6.png" alt=""></p><p>动态代理可以减少编程量，增强系统的可扩展性和维护性。</p>]]></content>
+      
+      <categories>
+          
+          <category> 设计模式 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>学习路线</title>
       <link href="/2019/02/17/my-technology-stack/"/>
       <url>/2019/02/17/my-technology-stack/</url>
