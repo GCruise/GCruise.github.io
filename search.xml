@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title>设计模式----工厂模式</title>
+      <link href="/2019/02/20/design-pattern-2/"/>
+      <url>/2019/02/20/design-pattern-2/</url>
+      <content type="html"><![CDATA[<p>工厂模式主要分为三种：简单工厂模式、工厂方法模式、抽象工厂模式。</p><h4 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h4><p>通过一个工厂类，对实现了同一接口的类进行实例的创建，只提供实例创建的功能。关系图如下：<br><img src="/img/design-pattern/factory/design-pattern-factory-3.png" alt="简单工厂模式关系图"><br>创建的对象：<br><img src="/img/design-pattern/factory/design-pattern-factory-1.png" alt=""></p><p>简单工厂:<br><img src="/img/design-pattern/factory/design-pattern-factory-2.png" alt=""></p><h4 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h4><p>不同于简单工厂模式，工厂方法模式会提供一个工厂接口，然后会有多个工厂去实现这个接口，创建相应的类，关系图如下：<br><img src="/img/design-pattern/factory/design-pattern-factory-5.png" alt="工厂方法模式关系图"><br>工厂接口：<br><img src="/img/design-pattern/factory/design-pattern-factory-4.png" alt=""></p><p>创建宝马的工厂：<br><img src="/img/design-pattern/factory/design-pattern-factory-6.png" alt=""></p><p>创建奔驰的工厂：<br><img src="/img/design-pattern/factory/design-pattern-factory-7.png" alt=""></p><h4 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h4><p>抽象工厂模式与工厂方法模式有所不同，抽象工厂模式解决不同产品等级的问题。比如宝马车有好车和坏车之分，如果使用工厂模式，在创建坏车时<br>需要修改宝马工厂的代码，创建好车时，也需要修改代码，违背闭包原则。所以需要抽象工厂模式解决。关系图如下：<br><img src="/img/design-pattern/factory/design-pattern-factory-8.png" alt="抽象工厂模式关系图"><br>工厂接口：<br><img src="/img/design-pattern/factory/design-pattern-factory-9.png" alt=""></p><p>创建好宝马的工厂：<br><img src="/img/design-pattern/factory/design-pattern-factory-10.png" alt=""></p><p>创建坏宝马的工厂：<br><img src="/img/design-pattern/factory/design-pattern-factory-11.png" alt=""></p>]]></content>
+      
+      <categories>
+          
+          <category> 设计模式 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>设计模式----代理模式</title>
       <link href="/2019/02/19/design-pattern-1/"/>
       <url>/2019/02/19/design-pattern-1/</url>
