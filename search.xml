@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title>设计模式----委派模式</title>
+      <link href="/2019/02/24/design-pattern-4/"/>
+      <url>/2019/02/24/design-pattern-4/</url>
+      <content type="html"><![CDATA[<h4 id="委派模式的定义"><a href="#委派模式的定义" class="headerlink" title="委派模式的定义"></a>委派模式的定义</h4><p>委派模式的原理为类B和类A是两个互相没有任何关系的类，B具有和A一模一样的方法和属性；并且调用B中的方法，属性就是调用A中同名的方法和属性。<br>B好像就是一个受A授权委托的中介。第三方的代码不需要知道A的存在，也不需要和A发生直接的联系，通过B就可以直接使用A的功能，这样既能够<br>使用到A的各种公能，又能够很好的将A保护起来了。<br>老板将任务委派给项目经理，项目经理将任务细化，根据每个人擅长的某一方面将细化后的任务分给指定的员工，权衡的方式（策略）有多种，而这个<br>任务项目经理不想干，就将其代理给了各个员工，从这个层面来看委派模式就是策略模式和代理模式的组合。<br>举例如下：<br>1、员工实现同一个接口，但负责不同的事情<br><img src="/img/design-pattern/delegation/design-pattern-delegation-1.png" alt="员工类"><br>2、项目经理，负责调配员工做不同的事情<br><img src="/img/design-pattern/delegation/design-pattern-delegation-2.png" alt="项目经理类"><br>3、老板，把任务交给项目经理，让项目经理完成某项任务<br><img src="/img/design-pattern/delegation/design-pattern-delegation-3.png" alt="老板类"></p><p>代理模式和委派模式的区别：<br>简单的代理模式知道被代理人的行为，因为代理类与被代理类实现的是同一个接口。<br>委派模式是译为委托，主要语义是：一件事情（或一个请求）对象本身不知道怎样处理，对象把请求交给其它对象来做。</p>]]></content>
+      
+      <categories>
+          
+          <category> 设计模式 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>设计模式----单例模式</title>
       <link href="/2019/02/23/design-pattern-3/"/>
       <url>/2019/02/23/design-pattern-3/</url>
