@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title>设计模式----策略模式</title>
+      <link href="/2019/03/07/design-pattern-5/"/>
+      <url>/2019/03/07/design-pattern-5/</url>
+      <content type="html"><![CDATA[<h4 id="策略模式的定义"><a href="#策略模式的定义" class="headerlink" title="策略模式的定义"></a>策略模式的定义</h4><p>在策略模式中，会提供一个抽象的策略类来做规则的定义，然后会有一些独立的类来实现这个策略类，每一个策略类都会封装特定的算法，每一个算法都可以称作一个策略。</p><h4 id="策略模式的目的"><a href="#策略模式的目的" class="headerlink" title="策略模式的目的"></a>策略模式的目的</h4><p>策略模式的主要目的是将算法的定义和使用分开，也就是将算法的行为和环境分开。将算法的定义放在专门的策略类中，每一个策略类实现一个专门的算法，使用算法的环境类对抽象策略类进行编程，符合依赖倒转原则，在实现新的算法时，只需要新增一个实现了抽象策略类的具体策略类就可以。<br>策略模式的结构图如下：<br><img src="/img/design-pattern/strategy/design-pattern-strategy-1.png" alt="策略模式结构图"></p><p>策略模式包含以下几个角色：<br>（1）Context(环境类)：使用算法的角色，在解决某个问题时可以采用多种策略<br>（2）Strategy(抽象策略类)：所有策略类的父类。环境类运行时通过抽象类中的方法调用具体的策略类中的算法。<br>（3）ConcreteStrategy(具体策略类)：实现了抽象策略类中声明的算法，运行时，具体抽象类会覆盖环境中定义的抽象策略类，使用一种具体的算法实现某个业务。</p><p>下面是一个买票的例子。不同的人买票的价格不一样，打折的算法不一样，算法实现一个抽象类，在同一个环境中被调用。<br>抽象策略类:<br><img src="/img/design-pattern/strategy/design-pattern-strategy-2.png" alt="抽象策略类"><br>具体策略类：<br><img src="/img/design-pattern/strategy/design-pattern-strategy-3.png" alt="具体策略类"><br>环境类：<br><img src="/img/design-pattern/strategy/design-pattern-strategy-4.png" alt="环境类"><br>测试代码如下：<br><img src="/img/design-pattern/strategy/design-pattern-strategy-5.png" alt="测试"></p>]]></content>
+      
+      <categories>
+          
+          <category> 设计模式 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>设计模式----委派模式</title>
       <link href="/2019/02/24/design-pattern-4/"/>
       <url>/2019/02/24/design-pattern-4/</url>
