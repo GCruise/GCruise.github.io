@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title>设计模式----原型模式</title>
+      <link href="/2019/03/09/design-pattern-6/"/>
+      <url>/2019/03/09/design-pattern-6/</url>
+      <content type="html"><![CDATA[<h4 id="原型模式的定义"><a href="#原型模式的定义" class="headerlink" title="原型模式的定义"></a>原型模式的定义</h4><p>通过原型的实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。</p><h4 id="原型模式的工作原理"><a href="#原型模式的工作原理" class="headerlink" title="原型模式的工作原理"></a>原型模式的工作原理</h4><p>将一个原型对象传给一个要发动创建的对象，这个发动创建的对象通过请求原型对象拷贝自己来实现创建过程。原型模式是一种另类的创建型模式，创建克隆对象的工厂就是原型类本身。</p><h4 id="原型模式的几个角色"><a href="#原型模式的几个角色" class="headerlink" title="原型模式的几个角色"></a>原型模式的几个角色</h4><p>（1）Prototype(抽象原型类)：声明克隆方法的接口，是所有具体原型类的公共父类，可以是抽象类也可以是接口，甚至开可以是具体实现类。<br>（2）ConcretePrototype(具体原型类)：实现抽象原型类中声明的克隆方法，在克隆方法中返回自己的克隆对象。<br>（3）Client(客户类)：让一个原型对象克隆自身从而创建一个新的对象。</p><h4 id="Java的clone-方法"><a href="#Java的clone-方法" class="headerlink" title="Java的clone()方法"></a>Java的clone()方法</h4><p>在Java中，所有的Java类都继承自Java.lang.Object。Object类提供一个clone()方法，将Java对象复制一份。因此在Java中，可以直接使用clone()方法实现对象的克隆。<br>在进行克隆时，被克隆的对象需要实现Cloneable接口，表明这个类是支持克隆的，否则将会抛出异常。</p><h4 id="实际中的应用"><a href="#实际中的应用" class="headerlink" title="实际中的应用"></a>实际中的应用</h4><p>如果一个OA系统有写周报的功能，需要定制一个周报模板，以后每次写周报的时候只需要复制这个周报模板，然后再修改具体的内容就可以了。这个时候就可以用到原型模式。<br>周报模板：<br>public class WeeklyReport implements Cloneable {<br>    private String name;<br>    private Date date;<br>    private String content;<br>    public String getName() {<br>        return name;<br>    }<br>    public void setName(String name) {<br>        this.name = name;<br>    }<br>    public Date getDate() {<br>        return date;<br>    }<br>    public void setDate(Date date) {<br>        this.date = date;<br>    }<br>    public String getContent() {<br>        return content;<br>    }<br>    public void setContent(String content) {<br>        this.content = content;<br>    }<br>    public WeeklyReport clone() {<br>        Object obj = null;<br>        try {<br>            obj = super.clone();<br>            return (WeeklyReport) obj;<br>        } catch (Exception e) {<br>            e.printStackTrace();<br>            return null;<br>        }<br>    }<br>}<br>测试代码：<br>public static void main(String[] args){<br>        //第一周<br>        WeeklyReport report1 = new WeeklyReport();<br>        report1.setName(“张无忌”);<br>        report1.setDate(new Date());<br>        report1.setContent(“这周很累”);</p><pre><code>//第二周WeeklyReport report2 = report1.clone();report1.setDate(new Date());</code></pre><p>}</p><h4 id="浅克隆和深克隆"><a href="#浅克隆和深克隆" class="headerlink" title="浅克隆和深克隆"></a>浅克隆和深克隆</h4><h5 id="浅克隆"><a href="#浅克隆" class="headerlink" title="浅克隆"></a>浅克隆</h5><p>在浅克隆中，如果原型对象的成员变量是值类型，将复制一份给克隆对象；如果原型对象的成员变量是应用类型，则会将对象的地址复制给克隆对象。在Java中，通过Object的clone方法即可实现浅克隆。<br><img src="/img/design-pattern/prototype/design-pattern-prototype-1.png" alt="浅克隆示意图"></p><h5 id="深克隆"><a href="#深克隆" class="headerlink" title="深克隆"></a>深克隆</h5><p>在深克隆中，无论原型对象的成员变量是值变量还是引用变量，都会复制一份给克隆对象。在Java中，可以通过实现序列化(Serialization)来实现，序列化就是将对象写到流的过程，写到流中的对象是原有对象的一个拷贝，而原对象仍然存在于内存中。通过序列化实现的拷贝不仅可以复制对象本身，而且可以复制其引用的成员对象，因此通过序列化将对象写到一个流中，再从流里将其读出来，可以实现深克隆。<br><img src="/img/design-pattern/prototype/design-pattern-prototype-2.png" alt="浅克隆示意图"></p>]]></content>
+      
+      <categories>
+          
+          <category> 设计模式 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>设计模式----策略模式</title>
       <link href="/2019/03/07/design-pattern-5/"/>
       <url>/2019/03/07/design-pattern-5/</url>
