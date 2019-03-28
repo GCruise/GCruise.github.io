@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>Spring5源码解析----bean</title>
+      <link href="/2019/03/28/spring5--1--bean/"/>
+      <url>/2019/03/28/spring5--1--bean/</url>
+      <content type="html"><![CDATA[<p>要了解Spring框架，首先要从Bean是如何被加载的说起。我们一般配置Bean都是在xml配置文件配置的，所以这里主要讲解一下Spring是如何从xml配置文件获取bean信息并注册bean。<br>创建Bean首先要从new XmlBeanFactory(new ClassPathResource(“beanFactoryTest.xml”))说起</p><h3 id="1、调用ClassPathResource的构造函数构造Resource资源文件的实例对象。"><a href="#1、调用ClassPathResource的构造函数构造Resource资源文件的实例对象。" class="headerlink" title="1、调用ClassPathResource的构造函数构造Resource资源文件的实例对象。"></a>1、调用ClassPathResource的构造函数构造Resource资源文件的实例对象。</h3><p>Spring对内部使用的资源实现了自己的抽象结构：Resource接口封装底层资源。<br><img src="/img/spring/1.1Resource.png" alt="图1.1"><br>Resource接口(图1-1所示)实现了InputStreamSource接口(图1-2所示)。<br><img src="/img/spring/1.2InputeStreamSource.png" alt="图1.2"><br>在InputStreamSource中定义了getInputStream方法，通过实现该方法获得InputStream对象，从而获得文件内容。此外，Resource接口中有3个判断资源状态的接口，exists(存在性)、isReadable(可读性)、isOpen(是否打开状态)，还有提供了不同资源到URI、URL、File类型的转换等不同来源的资源文件都对Resource接口进行了实现：FileSystemResource（文件）、ClassPathResource（Classpath资源）、UrlResource（URL资源）、InputStreamResource（InputStream资源）、ByteArrayResource（Byte数组），这些资源文件也对getInputResource进行了相应的实现，获得InputStream。</p><h3 id="2、得到Resource后，通过XmlBeanFactory构造函数初始化。"><a href="#2、得到Resource后，通过XmlBeanFactory构造函数初始化。" class="headerlink" title="2、得到Resource后，通过XmlBeanFactory构造函数初始化。"></a>2、得到Resource后，通过XmlBeanFactory构造函数初始化。</h3><p><img src="/img/spring/1.3XmlBeanFactory-ConStructor.png" alt="图1.3"><br>实例化Resource以后，便通过XmlBeanFactory的构造函数加载资源，构造函数如图1-3所示。其中super()方法中包含了ignoreDependencyInterface方法，其功能是可以忽略给定接口的自动装配功能。此外最重要的是this.reader.loadBeanDefinitions(resource)，它真正意义上实现了资源加载。下面详细介绍这个方法。</p><h3 id="3、加载Bean"><a href="#3、加载Bean" class="headerlink" title="3、加载Bean"></a>3、加载Bean</h3><p>loadBeanDefinitions(resource)方法的时序图如图1-4所示。<br><img src="/img/spring/1.4loadBeanDefinitions.png" alt="图1.4"><br>通过时序库可知，这个方法主要可以分为三个步骤。<br>(1)封装资源文件。将Resource封装成EncodeResource。<br>(2)获取输入流。从Resource中获取对应的InputResource并构造InputSource。<br>(3)通过构造的InputSource实例和Resource实例继续调用doLoadBeanDefinitions方法。<br>(4)通过inputSource和Resource构造出Document(这里里面包含了获取XML的验证模式（验证模式包含DTD和XSD），通过对应的验证模式获取Document)<br>(5)获得Document以后，便可以通过document.getDocumentElement()获取其Element，然后便进去创建bean最核心的部分doRegisterBeanDefinitions(Element root)，如图1.5所示<br><img src="/img/spring/1.5doRegisterBeanDefinitions.png" alt="图1.5"><br>这段代码中会先获取profile属性，判断是哪个环境，这个环境可以在Web环境中配置，此后便可以开始解析this.parseBeanDefinitions(root, this.delegate)，如图1.6所示<br><img src="/img/spring/1.6parseBeanDefinitions.png" alt="图1.6"></p>]]></content>
+      
+      <categories>
+          
+          <category> spring </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> spring </tag>
+            
+            <tag> bean </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>设计模式----原型模式</title>
       <link href="/2019/03/09/design-pattern-6/"/>
       <url>/2019/03/09/design-pattern-6/</url>
